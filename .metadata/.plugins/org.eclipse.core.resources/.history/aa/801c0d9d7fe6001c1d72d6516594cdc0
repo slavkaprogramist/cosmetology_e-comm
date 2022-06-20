@@ -1,0 +1,9 @@
+package com.kosmetolog.admin.category;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.kosmetolog.entity.Category;
+
+public interface CategoryRepo extends PagingAndSortingRepository<Category, Integer> {
+
+}

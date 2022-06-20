@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: page_head('Shopme', 'none')" />
+<body>
+	<div class="container">
+
+	<div th:replace="navigation :: header_menu"></div>
+	<div th:replace="navigation :: search_nav"></div>
+	<div id="carouselExampleSlidesOnly" class="carousel slide slider-main mt-10" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+			  <img src="../static/images/slider/1230_626_01150622.jpg"  th:src="@{/images/slider/1230_626_01150622.jpg}" class="d-block w-100" alt="slide1">
+		  </img>
+		</div>
+		  <div class="carousel-item">
+				<img src="../static/images/slider/1230_626_01150622.jpg"  th:src="@{/images/slider/1230_626_01150622.jpg}" class="d-block w-100" alt="slide2"> </img>
+		  </div>
+		  <div class="carousel-item">
+			<img src="../static/images/slider/1230_626_01150622.jpg"  th:src="@{/images/slider/1230_626_01150622.jpg}" class="d-block w-100" alt="slide3"/> </img>
+		  </div>
+		</div>
+	  </div>
+
+	<!-- src="../static/images/slider/IMG_089.jpg"  th:src="@{/images/slider/IMG_089.jpg}" -->
+	<section class="categories mt-10">
+	<div>
+		<h1>Категорії товарів</h1>
+	</div>
+	<div th:fragment="search_nav">
+	<form class="form-inline" th:action="@{/search}" method="get">
+		<input type="search" name="keyword" class="form-control mr-sm-2"
+			th:value="${keyword}" 
+			placeholder="Пошук" required />
+		<input type="submit" value="Пошук" class="btn btn-outline-success btn-search-items" />
+	</form>
+</div>
+	<div class="row mt-20 ">
+		<div class="col-sm-6 col-md-4 col-lg-3  " th:each="cat : ${listCategories}">
+			<a class="colBlack" th:href="@{'/c/' + ${cat.alias}}">
+			<div class="mb-10">
+				<img class=" m-0auto" th:src="@{${cat.imagePath}} " width="200" height="150"/>
+			</div>
+			<div class="text-center">
+				[[${cat.name}]]
+			</div>
+		</a>
+		</div>
+	</div>
+</section>
+
+	<div th:replace="navigation :: footer_menu"></div>	
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+	 $(document).ready(function() {
+		$("#logoutLink").on("click", function(e) {
+			e.preventDefault();
+			dcoument.logoutForm.submit();
+		});
+		customizeDropDownMenu();
+	 });
+	 
+	 function customizeDropDownMenu() {
+		$(".navbar .dropdown").hover(function() {
+			
+		});
+		$(".dropdown > a").click(function() {
+			location.href = this.href;
+		});
+	}

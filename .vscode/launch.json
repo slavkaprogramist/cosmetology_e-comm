@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-KostmetologBackEndApplication<KosmetologBackEnd>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.kosmetolog.admin.KostmetologBackEndApplication",
+            "projectName": "KosmetologBackEnd",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-KostmetologFrontEndApplication<KosmetologFrontEnd>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.kosmetolog.KostmetologFrontEndApplication",
+            "projectName": "KosmetologFrontEnd",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

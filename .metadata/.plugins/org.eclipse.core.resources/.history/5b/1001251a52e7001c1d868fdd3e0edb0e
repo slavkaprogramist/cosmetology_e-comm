@@ -1,0 +1,10 @@
+package com.kosmetolog.admin.product;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.kosmetolog.entity.Product;
+
+
+public interface ProductRepository extends PagingAndSortingRepository<Product, Integer> {
+
+}

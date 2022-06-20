@@ -1,0 +1,33 @@
+server:
+  port: 80
+  servlet:
+    context-path: /Kostmetolog
+spring:
+  datasource:
+    password: hbstudent
+    url: jdbc:mysql://localhost:3306/diploma
+    username: hbstudent
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  main:
+    allow-circular-references: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 908417680536-vqgqtur5qn9g9ajitu2ho1ut66h7fsqs.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+            - email
+            - profile
