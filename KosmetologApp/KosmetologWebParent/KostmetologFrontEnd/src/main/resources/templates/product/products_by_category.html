@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: page_head(${pageTitle}, 'none')" />
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<div class="container">
 	<div th:replace="navigation :: header_menu"></div>
 	<div th:replace="navigation :: search_nav"></div>
 	<div th:replace="breadcrumb :: content"></div>
-	
 	<div class="row text-center ">
 		<th:block th:each="cat : ${category.children}">
 		<div class="col" th:if="${cat.enabled == true}">
@@ -27,8 +26,8 @@
 	</div>
 	
 	<div th:replace="fragments :: pagination('/c/' + ${category.alias}, 'product')"></div>
-	
-	<div th:replace="navigation :: footer_menu"></div>
+
+	<footer th:replace="navigation :: footer_menu "></footer>
 </div>
 </body>
 </html>

@@ -49,6 +49,20 @@ margin-left: 25px;
 .product__price{
     margin-top: 10px;
 }
+.footer{
+    margin: -100px 0 0 0;
+    height: 100px;
+    background: #808080;
+    position: relative;
+}
+
+.cart_nothing{
+    margin-top: 150px;
+
+}
+.content100{
+    height:100%;
+}
 .mb-20{
     margin-bottom: 20px;
 }
@@ -82,6 +96,7 @@ width: 83%;
 .colBlack{
     color:black
 }
+
 @media (max-width: 573px){
     .btn-search-items{
         margin-top: 10px;

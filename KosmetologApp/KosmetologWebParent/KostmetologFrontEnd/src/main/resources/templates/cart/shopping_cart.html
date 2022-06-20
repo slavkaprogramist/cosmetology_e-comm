@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: page_head('Shopping Cart', 'none')" />
-<body>
-<div class="container-fluid">
+<body class="d-flex flex-column min-vh-100">
+<div class="container">
 	<div th:replace="navigation :: header_menu"></div>
 	<div th:replace="navigation :: search_nav"></div>
-
+<div class="content100 ">
 	<div class="text-center">
-		<h2>Your Shopping Cart</h2>
+		<h2>Кошик</h2>
 	</div>
 
 	<div class="row m-1">
@@ -49,7 +49,7 @@
 		
 		<div class="col-sm-4" th:unless="${#lists.isEmpty(cartItems)}" id="sectionTotal">
 			<div>
-				<span class="h3">Estimated Total:</span>
+				<span class="h3">Всього:</span>
 			</div>
 			<div class="mt-2">
 				<span th:if="${CURRENCY_SYMBOL_POSITION == 'Before price'}" th:remove="tag">[[${CURRENCY_SYMBOL}]]</span><span id="total" class="h2">[[${#numbers.formatDecimal(estimatedTotal, 1, THOUSANDS_POINT_TYPE, DECIMAL_DIGITS, DECIMAL_POINT_TYPE)}]]</span><span th:if="${CURRENCY_SYMBOL_POSITION == 'After price'}" th:remove="tag">[[${CURRENCY_SYMBOL}]]</span>				
@@ -62,14 +62,14 @@
 				</div>
 				
 				<div th:unless="${shippingSupported}">
-					<div><span class="h5 text-warning">No shipping available for your location</span></div>
+					<div><span class="h5 text-warning">На вашу адресу ще немає доставки</span></div>
 					
 					<div th:if="${usePrimaryAddressAsDefault}">
-						<a th:href="@{/account_details(redirect=cart)}" class="h6">Update your address</a>
+						<a th:href="@{/account_details(redirect=cart)}" class="h6">Будь ласка оновите вашу адресу</a>
 					</div>
 					
 					<div th:unless="${usePrimaryAddressAsDefault}">
-						<a th:href="@{/address_book(redirect=cart)}" class="h6">Use another shipping address</a>
+						<a th:href="@{/address_book(redirect=cart)}" class="h6">Оновити адресу</a>
 					</div>
 				</div>
 			</div>
@@ -77,12 +77,14 @@
 	</div>	
 	
 	<div id="sectionEmptyCartMessage" th:class="'text-center' + ${#lists.isEmpty(cartItems) ? '' : ' d-none'}" >
-		<h3>You have not chosen any products yet.</h3>
+		<div class="cart_nothing">Нажаль ви щє нічого не додали у кошик</div>
+		<img src="../static/images/empty-cart.jpg"  th:src="@{/images/empty-cart.jpg}" class="m-0auto" alt="empty-cart"/> </img>
 	</div>
-	
+</div>
+
 	<div th:replace="fragments :: modal_dialog"></div>
 	<div th:replace="navigation :: footer_menu"></div>
-</div>	
+</div>
 <script type="text/javascript">
 	contextPath = "[[@{/}]]";
 	var csrfHeaderName = "[[${_csrf.headerName}]]";
